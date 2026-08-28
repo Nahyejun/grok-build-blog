@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grok Build 데모 블로그</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --card: #151b2b;
+            --accent: #7c5cff;
+            --accent2: #00d4ff;
+            --text: #e8ecf4;
+            --muted: #9aa4b8;
+            --border: rgba(255,255,255,0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .bg-glow {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(800px 400px at 10% -10%, rgba(124,92,255,0.25), transparent 50%),
+                radial-gradient(600px 300px at 90% 0%, rgba(0,212,255,0.15), transparent 50%),
+                radial-gradient(400px 400px at 50% 100%, rgba(124,92,255,0.1), transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        header {
+            position: relative;
+            z-index: 1;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 28px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(90deg, #fff, var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+        nav a:hover { color: #fff; }
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px 24px 80px;
+        }
+        .hero {
+            padding: 40px 0 56px;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(124,92,255,0.15);
+            border: 1px solid rgba(124,92,255,0.35);
+            color: #c4b5ff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 999px;
+            margin-bottom: 18px;
+        }
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        h1 span {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .lead {
+            font-size: 1.15rem;
+            color: var(--muted);
+            max-width: 640px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        @media (min-width: 720px) {
+            .grid { grid-template-columns: 1.4fr 1fr; }
+        }
+        article, .side-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+        }
+        article h2 {
+            font-size: 1.45rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.03em;
+        }
+        .meta {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-bottom: 18px;
+        }
+        article p { margin-bottom: 14px; color: #cdd3e0; }
+        article h3 {
+            margin: 22px 0 10px;
+            font-size: 1.1rem;
+        }
+        code {
+            background: rgba(0,0,0,0.35);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+        .side-card h3 { margin-bottom: 12px; }
+        .side-card ul { padding-left: 18px; color: var(--muted); }
+        .side-card li { margin-bottom: 8px; }
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+            padding: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <header>
+        <div class="logo">GROK BUILD BLOG</div>
+        <nav>
+            <a href="#post">포스트</a>
+            <a href="#about">소개</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="badge">✦ Grok Build Mode로 생성됨</div>
+            <h1>아이디어에서<br><span>살아있는 웹사이트</span>까지</h1>
+            <p class="lead">이 페이지는 Grok Build 모드로 기능을 만들고 GitHub에 올려 블로그처럼 공개한 데모입니다. 설명만으로 구조, 디자인, 콘텐츠까지 한 번에 만들 수 있습니다.</p>
+        </section>
+        <div class="grid">
+            <article id="post">
+                <h2>빌드모드로 기능 만들고 블로그에 옮c리는 방법</h2>
+                <p class="meta">2026.08.28 · Grok 4.6 · 5분 읽기</p>
+                <p>복잡한 개발 환경 없이도, 원하는 기능을 말로 설명하면 웹페이지가 됩니다. 이 사이트 자체가 그 결과물입니다.</p>
+                <h3>1. 만들고 싶은 기능을 구체적으로 말하기</h3>
+                <p>예: “다크 테마의 한국어 블로그 랜딩 페이지를 만들고, 히어로 섹션과 샘플 글을 넣어줘.”</p>
+                <h3>2. HTML / CSS로 한 번에 생성</h3>
+                <p>레이아웃, 타이포, 그라데이션, 반응형까지 포함한 정적 사이트를 바로 받습니다. 호스팅은 GitHub Pages나 아무 정적 호스팅이면 충분합니다.</p>
+                <h3>3. 저장소에 옮c리고 공개</h3>
+                <p>파일을 <code>index.html</code>로 커밋한 뒤 GitHub Pages를 켜면 바로 URL이 생깁니다. 블로그 글처럼 링크를 공유하면 됩니다.</p>
+                <p>다음에 기능을 추가하고 싶다면 “댓글 없이 조회수만 보이게”, “글 목록 페이지 추가”처럼 이어서 요청하면 됩니다.</p>
+            </article>
+            <aside class="side-card" id="about">
+                <h3>이 데모에 들어간 기능</h3>
+                <ul>
+                    <li>반응형 다크 UI</li>
+                    <li>그라데이션 히어로</li>
+                    <li>샘플 블로그 포스트</li>
+                    <li>Pretendard 한글 타이포</li>
+                    <li>GitHub Pages 배포 가능 구조</li>
+                </ul>
+            </aside>
+        </div>
+    </main>
+    <footer>Built with Grok Build · 2026</footer>
+</body>
+</html>
